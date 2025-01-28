@@ -1,0 +1,30 @@
+#include <iostream>
+#include <algorithm>
+
+void sortArray(int* array, int size) {
+    if (array == nullptr || size <= 0) return;
+    std::sort(array, array + size);
+}
+
+int main() {
+    int size;
+    std::cout << "Enter array size: ";
+    std::cin >> size;
+
+    int* dynamicArray = new int[size];
+    std::cout << "Enter Array Elements:\n";
+    for (int i = 0; i < size; ++i) {
+        std::cin >> dynamicArray[i];
+    }
+
+    sortArray(dynamicArray, size);
+
+    std::cout << "Sorted array:\n";
+    for (int i = 0; i < size; ++i) {
+        std::cout << dynamicArray[i] << " ";
+    }
+    std::cout << "\n";
+
+    delete[] dynamicArray;
+    return 0;
+}
